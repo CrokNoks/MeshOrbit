@@ -6,6 +6,7 @@
 GET {{host}}/services
 
 ### Création d'un service
+# @name CreateService
 POST {{host}}/services
 Content-Type: application/json
 
@@ -16,10 +17,12 @@ Content-Type: application/json
 }
 
 ### Détail d'un service
-GET {{host}}/services/{{serviceId}}
+# @ref CreateService
+GET {{host}}/services/{{CreateService.id}}
 
 ### Mise à jour d'un service
-PUT {{host}}/services/{{serviceId}}
+# @ref CreateService
+PUT {{host}}/services/{{CreateService.id}}
 Content-Type: application/json
 
 {
@@ -29,4 +32,7 @@ Content-Type: application/json
 }
 
 ### Suppression d'un service
-DELETE {{host}}/services/{{serviceId}}
+# @ref CreateService
+DELETE {{host}}/services/{{CreateService.id}}
+?? status == 200
+?? body.id == {{CreateService.id}}

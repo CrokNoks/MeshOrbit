@@ -1,0 +1,32 @@
+# Fichier httpyac pour tester l'API services MeshOrbit
+
+@host = http://localhost:3000
+
+### Liste des services
+GET {{host}}/services
+
+### Création d'un service
+POST {{host}}/services
+Content-Type: application/json
+
+{
+  "name": "Service Test",
+  "url": "http://localhost:4000",
+  "status": "up"
+}
+
+### Détail d'un service
+GET {{host}}/services/{{serviceId}}
+
+### Mise à jour d'un service
+PUT {{host}}/services/{{serviceId}}
+Content-Type: application/json
+
+{
+  "name": "Service Test Updated",
+  "url": "http://localhost:4000",
+  "status": "down"
+}
+
+### Suppression d'un service
+DELETE {{host}}/services/{{serviceId}}

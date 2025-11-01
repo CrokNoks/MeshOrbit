@@ -1,0 +1,22 @@
+# Dockerfile.dev pour MeshOrbit Server (NestJS) + Redis
+FROM node:24-alpine
+
+# Installation de Redis
+RUN apk add --no-cache redis
+
+WORKDIR /app
+
+
+# Copie explicite du package.json et package-lock.json
+COPY package*.json ./
+
+
+RUN npm install
+
+# Copie du code source
+COPY . .
+
+EXPOSE 3000 6379
+
+# Commande pour lancer Redis et le serveur NestJS en mode développement
+CMD ["sh", "-c", "redis-server & npm run start:dev"]

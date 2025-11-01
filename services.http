@@ -35,4 +35,4 @@ Content-Type: application/json
 # @ref CreateService
 DELETE {{host}}/services/{{CreateService.id}}
 ?? status == 200
-?? body.id == {{CreateService.id}}
+?? body id == {{CreateService.id}}

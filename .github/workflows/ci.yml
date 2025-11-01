@@ -32,4 +32,4 @@ jobs:
       - name: Wait for server
         run: sleep 10
       - name: Run e2e API tests
-        run: httpyac services.http
+        run: npm run test:e2e
